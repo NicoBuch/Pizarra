@@ -1,0 +1,26 @@
+table.table
+  tr
+    th Fecha Para Transacción
+    th Compra (C) o Venta (V)
+    th Moneda
+    th Monto
+    th Cotización
+    th Paga (P) o Recibe (R)
+    th Moneda
+    th Monto
+    th Referencia
+    th
+  = @entries.each do |e|
+    tr
+      th = e.transaction_date
+      th = e.transaction_type
+      th = e.my_coin
+      th = e.my_amount
+      th = e.unity_price
+      th = e.transaction_type == 'C' ? 'P' : 'V'
+      th = e.your_coin
+      th = e.your_amount
+      th = e.user.reference
+      th.btn.btn-primary.btn-lg.active
+  end
+
