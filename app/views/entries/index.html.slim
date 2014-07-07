@@ -1,3 +1,4 @@
+h1 Pizarra
 table.table
   tr
     th Fecha Para Transacción
@@ -22,5 +23,6 @@ table.table
       th = e.your_amount
       th = e.user.reference
       th.btn.btn-primary.btn-lg.active
+        = button_to '', e.user, method: :get
   end
 
