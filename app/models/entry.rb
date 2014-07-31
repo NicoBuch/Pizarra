@@ -3,4 +3,7 @@ class Entry < ActiveRecord::Base
 
   validates :user, presence: true
 
+  def down
+    logical_down = false;
+  end
 end

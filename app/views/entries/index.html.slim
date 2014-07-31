@@ -11,18 +11,18 @@ table.table
     th Monto
     th Referencia
     th
-  = @entries.each do |e|
+  - @entries.where(logical_down: true).each do |e|
     tr
-      th = e.transaction_date
-      th = e.transaction_type
-      th = e.my_coin
-      th = e.my_amount
-      th = e.unity_price
-      th = e.transaction_type == 'C' ? 'P' : 'V'
-      th = e.your_coin
-      th = e.your_amount
-      th = e.user.reference
-      th.btn.btn-primary.btn-lg.active
-        = button_to '', e.user, method: :get
+      td = e.transaction_date
+      td = e.transaction_type
+      td = e.my_coin
+      td = e.my_amount
+      td = e.unity_price
+      td = e.transaction_type == 'C' ? 'P' : 'V'
+      td = e.your_coin
+      td = e.my_amount * e.unity_price
+      td = e.user.reference
+      td.button
+        = button_to '', user_path(e.user_id), method: :get
   end
 
