@@ -1,0 +1,32 @@
+h1 New Entry
+br
+= form_for @entry do |f|
+  div
+    = f.label :transaction_date
+    br/
+    = f.date_field :transaction_date, autocomplete: "off", required: true
+  div
+    = f.label :transaction_type
+    br/
+    = label_tag :compra, "Compra"
+    = f.radio_button :transaction_type, "C", checked: true
+    br/
+    = label_tag :venta, "Venta"
+    = f.radio_button :transaction_type, "V"
+  div
+    = f.label :my_coin
+    br/
+    = f.text_field :my_coin, autocomplete: "off", required: true
+  div
+    = f.label :your_coin
+    br/
+    = f.text_field :your_coin, autocomplete: "off", required: true
+  div
+    = f.label :my_amount
+    br/
+    = f.number_field :my_amount, autocomplete: "off", class: 'text_field', step: 'any', required: true
+  div
+    = f.label :unity_price
+    br/
+    = f.number_field :unity_price, autocomplete: "off", class: 'text_field', step: 'any', required: true
+  div = f.submit "Create"

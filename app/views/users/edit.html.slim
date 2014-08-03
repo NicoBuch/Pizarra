@@ -1,0 +1,29 @@
+.col-md-4
+.col-md-4
+  h1 Edit Profile
+  = form_for @user do |f|
+    div
+      = f.label :name
+      br/
+      = f.text_field :name, autocomplete: "off", required: true
+    div
+      = f.label :reference
+      br/
+      = f.text_field :reference, autocomplete: "off", required: true
+    div
+      = f.label :phone
+      br/
+      = f.text_field :phone, autocomplete: "off", required: true
+    div
+      = f.label :address
+      br/
+      = f.text_field :address, autocomplete: "off"
+    div
+      = f.label :notes
+      br/
+      = f.text_field :notes, autocomplete: "off"
+    div
+      .col-md-6
+        = link_to 'Back', entries_path
+      .col-md-6
+        = f.submit "Update"

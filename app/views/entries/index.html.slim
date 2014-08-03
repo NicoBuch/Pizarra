@@ -1,28 +1,38 @@
 h1 Pizarra
-table.table
-  tr
-    th Fecha Para Transacción
-    th Compra (C) o Venta (V)
-    th Moneda
-    th Monto
-    th Cotización
-    th Paga (P) o Recibe (R)
-    th Moneda
-    th Monto
-    th Referencia
-    th
-  - @entries.where(logical_down: true).each do |e|
+
+.row
+.col-md-6
+.col-md-3
+  .button
+    = link_to 'Edit Profile', edit_user_path(@current_user)
+.col-md-3
+  .button
+    = link_to 'New Entry', new_entry_path
+.row
+  table.table
     tr
-      td = e.transaction_date
-      td = e.transaction_type
-      td = e.my_coin
-      td = e.my_amount
-      td = e.unity_price
-      td = e.transaction_type == 'C' ? 'P' : 'V'
-      td = e.your_coin
-      td = e.my_amount * e.unity_price
-      td = e.user.reference
-      td.button
-        = button_to '', user_path(e.user_id), method: :get
-  end
+      th Fecha Para Transacción
+      th Compra (C) o Venta (V)
+      th Moneda
+      th Monto
+      th Cotización
+      th Paga (P) o Recibe (R)
+      th Moneda
+      th Monto
+      th Referencia
+      th
+    - @entries.where(logical_down: true).each do |e|
+      tr
+        td = e.transaction_date
+        td = e.transaction_type
+        td = e.my_coin
+        td = e.my_amount
+        td = e.unity_price
+        td = e.transaction_type == 'C' ? 'P' : 'V'
+        td = e.your_coin
+        td = e.my_amount * e.unity_price
+        td = e.user.reference
+        td.button
+          = button_to '', user_path(e.user_id), method: :get
+    end
 
