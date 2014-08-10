@@ -24,9 +24,9 @@ br
   div
     = f.label :my_amount
     br/
-    = f.number_field :my_amount, autocomplete: "off", class: 'text_field', step: 'any', required: true
+    = f.number_field :my_amount, autocomplete: "off", step: 'any', required: true
   div
     = f.label :unity_price
     br/
-    = f.number_field :unity_price, autocomplete: "off", class: 'text_field', step: 'any', required: true
+    = f.number_field :unity_price, autocomplete: "off", step: 'any', required: true
   div = f.submit "Create"

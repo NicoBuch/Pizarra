@@ -2,7 +2,18 @@ h1
   = @user.reference
 
 ul
+  h3 Name
   li
      = @user.name
+  h3 Phone
   li
     = @user.phone
+  h3 Address
+  li
+    = @user.address
+  h3 Notes
+  li
+    = @user.notes
+div
+  = button_to 'Back', entries_path, class: 'button btn btn-default', method: :get
+

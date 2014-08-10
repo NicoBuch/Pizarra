@@ -4,10 +4,10 @@ h1 Pizarra
 .col-md-6
 .col-md-3
   .button
-    = link_to 'Edit Profile', edit_user_path(@current_user)
+    = link_to 'Edit Profile', edit_user_path(@current_user), class: 'btn btn-warning'
 .col-md-3
   .button
-    = link_to 'New Entry', new_entry_path
+    = link_to 'New Entry', new_entry_path, class: 'btn btn-success'
 .row
   table.table
     tr
@@ -21,6 +21,7 @@ h1 Pizarra
       th Monto
       th Referencia
       th
+      th
     - @entries.where(logical_down: true).each do |e|
       tr
         td = e.transaction_date
@@ -32,7 +33,8 @@ h1 Pizarra
         td = e.your_coin
         td = e.my_amount * e.unity_price
         td = e.user.reference
-        td.button
-          = button_to '', user_path(e.user_id), method: :get
-    end
-
+        td
+          = button_to '', user_path(e.user_id), class: 'btn btn-info', method: :get
+        - if e.user_id == @current_user.id
+          td
+            = button_to '', entry_down_path(e), class: 'btn btn-danger'
