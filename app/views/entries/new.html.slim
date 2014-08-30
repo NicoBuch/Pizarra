@@ -1,32 +1,44 @@
-h1 New Entry
-br
-= form_for @entry do |f|
-  div
-    = f.label :transaction_date
-    br/
-    = f.date_field :transaction_date, autocomplete: "off", required: true
-  div
-    = f.label :transaction_type
-    br/
-    = label_tag :compra, "Compra"
-    = f.radio_button :transaction_type, "C", checked: true
-    br/
-    = label_tag :venta, "Venta"
-    = f.radio_button :transaction_type, "V"
-  div
-    = f.label :my_coin
-    br/
-    = f.text_field :my_coin, autocomplete: "off", required: true
-  div
-    = f.label :your_coin
-    br/
-    = f.text_field :your_coin, autocomplete: "off", required: true
-  div
-    = f.label :my_amount
-    br/
-    = f.number_field :my_amount, autocomplete: "off", step: 'any', required: true
-  div
-    = f.label :unity_price
-    br/
-    = f.number_field :unity_price, autocomplete: "off", step: 'any', required: true
-  div = f.submit "Create"
+.col-md-4
+.col-md-4
+  h1 Nueva Entrada
+  br
+  = form_for @entry do |f|
+    div
+      = f.label 'Fecha para Transacción'
+      br/
+      = f.date_field :transaction_date, autocomplete: "off", required: true
+    br
+    div
+      = f.label 'Tipo de Transacción'
+      br/
+      = label_tag :compra, "Compro"
+      = f.radio_button :transaction_type, "C", checked: true
+      br/
+      = label_tag :venta, "Vendo"
+      = f.radio_button :transaction_type, "V"
+    br
+    div
+      = f.label 'Monto'
+      br/
+      = f.number_field :my_amount, autocomplete: "off", step: 'any', required: true
+    br
+    div
+      = f.label 'Moneda'
+      br/
+      = f.text_field :my_coin, autocomplete: "off", required: true
+    br
+    div
+      = f.label 'Pago en', id: "label"
+      br/
+      = f.text_field :your_coin, autocomplete: "off", required: true
+    br
+    div
+      = f.label 'Cotización'
+      br/
+      = f.number_field :unity_price, autocomplete: "off", step: 'any', required: true
+    br
+    div
+      .col-md-8
+        = link_to 'Volver', entries_path, class: 'btn btn-primary'
+      .col-md-4
+        = f.submit "Crear", class: 'btn btn-default'
