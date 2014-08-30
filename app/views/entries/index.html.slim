@@ -1,14 +1,20 @@
 h1 Pizarra
 
 .row
-.col-md-6
-.col-md-3
-  .button
-    = link_to 'Edit Profile', edit_user_path(@current_user), class: 'btn btn-warning'
-.col-md-3
-  .button
-    = link_to 'New Entry', new_entry_path, class: 'btn btn-success'
+  .col-md-6
+  .col-md-2
+    .button
+      = link_to 'Editar Perfil', edit_user_path(@current_user), class: 'btn btn-warning'
+  .col-md-2
+    .button
+      = link_to 'Nueva Entrada', new_entry_path, class: 'btn btn-success'
+  .col-md-2
+    .button
+      = link_to 'Configuración de cuenta', edit_user_registration_path, class: 'btn btn-primary'
+br
+
 .row
+
   table.table
     tr
       th Fecha Para Transacción
@@ -23,13 +29,13 @@ h1 Pizarra
       th
       th
     - @entries.where(logical_down: true).each do |e|
-      tr
-        td = e.transaction_date
+      tr.table-info
+        td = e.transaction_date.to_formatted_s(:arg)
         td = e.transaction_type
         td = e.my_coin
         td = e.my_amount
         td = e.unity_price
-        td = e.transaction_type == 'C' ? 'P' : 'V'
+        td = e.transaction_type == 'C' ? 'P' : 'R'
         td = e.your_coin
         td = e.my_amount * e.unity_price
         td = e.user.reference
@@ -38,3 +44,7 @@ h1 Pizarra
         - if e.user_id == @current_user.id
           td
             = button_to '', entry_down_path(e), class: 'btn btn-danger'
+        - else
+          td
+
+= button_to 'Cerrar Sesión', destroy_user_session_path, class: 'btn btn-danger', method: :delete

@@ -2,18 +2,18 @@ h1
   = @user.reference
 
 ul
-  h3 Name
+  h3 Nombre
   li
      = @user.name
-  h3 Phone
+  h3 Teléfono
   li
     = @user.phone
-  h3 Address
+  h3 Dirección
   li
     = @user.address
-  h3 Notes
+  h3 Notas
   li
     = @user.notes
 div
-  = button_to 'Back', entries_path, class: 'button btn btn-default', method: :get
+  = button_to 'Volver', entries_path, class: 'btn btn-primary', method: :get
 

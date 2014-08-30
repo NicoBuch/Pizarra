@@ -1,29 +1,34 @@
 .col-md-4
 .col-md-4
-  h1 Edit Profile
+  h1 Editar Perfil
   = form_for @user do |f|
     div
-      = f.label :name
+      = f.label 'Nombre'
       br/
       = f.text_field :name, autocomplete: "off", required: true
+    br
     div
-      = f.label :reference
+      = f.label 'Referencia'
       br/
       = f.text_field :reference, autocomplete: "off", required: true
+    br
     div
-      = f.label :phone
+      = f.label 'Teléfono'
       br/
       = f.text_field :phone, autocomplete: "off", required: true
+    br
     div
-      = f.label :address
+      = f.label 'Dirección'
       br/
       = f.text_field :address, autocomplete: "off"
+    br
     div
-      = f.label :notes
+      = f.label 'Notas'
       br/
-      = f.text_field :notes, autocomplete: "off"
+      = f.text_area :notes, autocomplete: "off", rows: 4, cols: 50
+    br
     div
-      .col-md-6
-        = link_to 'Back', entries_path
-      .col-md-6
-        = f.submit "Update"
+      .col-md-8
+        = link_to 'Volver', entries_path, class: 'btn btn-primary'
+      .col-md-4
+        = f.submit "Actualizar", class: 'btn btn-default'

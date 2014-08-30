@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
 
   def check_user_data
     if current_user.name.blank? || current_user.reference.blank? || current_user.phone.blank?
-      redirect_to edit_user_registration_path
+      redirect_to edit_user_path(current_user)
     end
   end
 
