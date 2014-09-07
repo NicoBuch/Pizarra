@@ -20,6 +20,7 @@ gem 'loadjs'
 gem 'inherited_resources'
 gem 'jquery-turbolinks'
 gem 'devise'
+gem 'devise_security_extension'
 gem 'httparty'
 gem 'rest_client'
 

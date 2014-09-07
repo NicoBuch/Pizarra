@@ -195,6 +195,9 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_security_extension (0.8.0)
+      devise (>= 2.0.0)
+      rails (>= 3.1.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
     em-websocket (0.5.1)
@@ -450,6 +453,7 @@ DEPENDENCIES
   cucumber-rails!
   database_cleaner!
   devise
+  devise_security_extension
   factory_girl_rails
   faker
   formtastic!
