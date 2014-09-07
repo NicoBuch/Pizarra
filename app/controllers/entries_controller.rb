@@ -1,12 +1,7 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate_user!, only: [:index, :new]
-  after_filter :log_out, only: [:index]
+  before_filter :authenticate_user!, only: [:index]
   before_filter :check_user_data, only: [:new]
   inherit_resources
-
-  def log_out
-    sign_out current_user
-  end
 
   def index
     @current_user = current_user

@@ -6,7 +6,7 @@
     div
       = f.label 'Fecha para Transacción'
       br/
-      = f.date_field :transaction_date, autocomplete: "off", required: true
+      = f.date_field :transaction_date, autocomplete: "off", required: true, min: Time.now, format: :default
     br
     div
       = f.label 'Tipo de Transacción'
