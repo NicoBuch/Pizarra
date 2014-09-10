@@ -10,14 +10,14 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :contraseña %> <i>(deja el campo vacío si no quiere cambiarla)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div><br>
-
-  <div><%= f.label :confirmación_de_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div><br>
-
   <div><%= f.label :contraseña_actual %> <i>(su contraseña actual es necesaria para confirmar los cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div><br>
+
+  <div><%= f.label :nueva_contraseña %> <i>(deja el campo vacío si no quiere cambiarla)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div><br>
+
+  <div><%= f.label :confirmar_nueva_contraseña %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div><br>
 
   <div><%= f.submit "Actualizar" %></div><br>
 <% end %>

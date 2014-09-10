@@ -1,5 +1,4 @@
 class EntriesController < ApplicationController
-  before_filter :authenticate_user!
   before_filter :check_user_data, only: [:new]
   inherit_resources
 

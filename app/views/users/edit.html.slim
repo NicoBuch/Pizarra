@@ -1,26 +1,31 @@
 .col-md-4
 .col-md-4
   h1 Editar Perfil
+  br
+  - if current_user.name.blank? || current_user.reference.blank? || current_user.phone.blank?
+      small * Primero tienes que crear tu perfil! *
+      br
+      br
   = form_for @user do |f|
     div
       = f.label 'Nombre'
       br/
-      = f.text_field :name, autocomplete: "off", required: true
+      = f.text_field :name, autocomplete: "off", required: true, size: 50
     br
     div
       = f.label 'Referencia'
       br/
-      = f.text_field :reference, autocomplete: "off", required: true
+      = f.text_field :reference, autocomplete: "off", required: true, size: 50
     br
     div
       = f.label 'Teléfono'
       br/
-      = f.text_field :phone, autocomplete: "off", required: true
+      = f.text_field :phone, autocomplete: "off", required: true, size: 50
     br
     div
       = f.label 'Dirección'
       br/
-      = f.text_field :address, autocomplete: "off"
+      = f.text_field :address, autocomplete: "off", size: 50
     br
     div
       = f.label 'Notas'
