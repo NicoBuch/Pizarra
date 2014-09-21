@@ -2,11 +2,17 @@
 .col-md-4
   h1 Nueva Entrada
   br
+  - if @entry.errors.any?
+    .error_explanation
+      ul
+        - @entry.errors.each do |a, e|
+          li = e
+
   = form_for @entry do |f|
     div
       = f.label 'Fecha para Transacción'
       br/
-      = f.date_field :transaction_date, autocomplete: "off", required: true, min: Time.now, format: :default
+      = f.date_field :transaction_date, required: true, format: :default, placeholder: 'dd/mm/aaaa'
     br
     div
       = f.label 'Tipo de Transacción'

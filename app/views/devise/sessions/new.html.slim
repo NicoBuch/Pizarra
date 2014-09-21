@@ -1,0 +1,13 @@
+h2 Sign in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: true, class: 'form-control', placeholder: 'usuario@abc.com'
+  .form-group
+    = f.label :password
+    = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Contraseña'
+
+  = f.submit 'Sign in', class: 'button btn btn-default'
+
+= render "devise/shared/links"

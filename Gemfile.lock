@@ -187,6 +187,8 @@ GEM
       gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.1)
+    date_validator (0.7.0)
+      activemodel (>= 3)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.2.4)
@@ -452,6 +454,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   cucumber-rails!
   database_cleaner!
+  date_validator
   devise
   devise_security_extension
   factory_girl_rails

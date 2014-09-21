@@ -12,10 +12,14 @@ class EntriesController < ApplicationController
   end
 
   def create
-    Entry.create!(permitted_params[:entry].merge(user: current_user, my_amount:
-                                                 params['entry']['my_amount'].to_f, unity_price:
-                                                 params['entry']['unity_price'].to_f))
-    redirect_to entries_path
+    @entry = Entry.new(permitted_params[:entry].merge(user: current_user, my_amount:
+                           params['entry']['my_amount'].to_f, unity_price:
+                           params['entry']['unity_price'].to_f))
+    if @entry.save
+      redirect_to entries_path
+    else
+      render action: :new
+    end
   end
 
   def down
