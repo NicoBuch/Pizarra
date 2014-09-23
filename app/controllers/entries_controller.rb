@@ -23,7 +23,7 @@ class EntriesController < ApplicationController
   end
 
   def down
-    Entry.find(params[:entry_id]).down
+    Entry.find(params[:entry_id]).update_column :logical_down, false
     redirect_to root_path
   end
 

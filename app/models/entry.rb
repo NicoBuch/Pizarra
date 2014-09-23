@@ -5,8 +5,4 @@ class Entry < ActiveRecord::Base
 
   validates :user, presence: true
 
-  def down
-    update_attributes!(logical_down: false);
-  end
-
 end
